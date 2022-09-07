@@ -1,0 +1,6 @@
+output/*
+image/*
+
+.env
+__pycache__/
+

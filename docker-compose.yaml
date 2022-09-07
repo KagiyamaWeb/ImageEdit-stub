@@ -1,0 +1,18 @@
+services:
+  image_gen:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - "${DOCKER_EXPOSE_PORT?8000}:8000"
+    volumes:
+      - .:/code/
+    command: ["python", "main.py"]
+    restart: unless-stopped
+    networks:
+      image_app:
+
+networks:
+  image_app:
